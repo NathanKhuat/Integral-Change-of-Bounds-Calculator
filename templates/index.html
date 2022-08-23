@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../static/mathquill/mathquill.css"/>
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../static/mathquill/mathquill.js"></script>
+<script>
+    var MQ = MathQuill.getInterface(2); //
+</script>
+<script src="../static/mathquill/integral_render.js"></script>
+
+<head>
+    <title>Change of Bounds Calculator</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+</head>
+<body style="background-color: oldlace;">
+
+    <div class="container">
+        <h1 style="text-align: center;"> ENTER YOUR INPUT:</h1>
+
+        <h4 style="text-align: center; visibility: hidden;">
+        <span class="mathquill-editable" style="font-size:16pt">
+            <div id="outer">\int ^ { \MathQuillMathField{} } _ { \MathQuillMathField{} } </div>
+            <div id="inner">\int ^ { \MathQuillMathField{} } _ { \MathQuillMathField{} } f(x, y) dydx</div>
+        </span>
+        <p><button id="submit">Submit</button></p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div id="answer" style="visibility: hidden;">
+            <h1 style="text-align: center;"> ANSWER</h1>
+            <h5 style="text-align: center;">
+                <span class="mathquill-editable" style="font-size:16pt">
+                    <div id = "data"></div>
+                </span>
+            </h5>
+        </div>
+    </h4>
+    </div>
+    
+</body>
+</html>
